@@ -66,15 +66,15 @@ Debug.Log(Cube.activeSelf);
 
 ```c#
 BoxCollider bc =GetComponent<BoxCollider>()); 
-／／获取当前物体的子物体身上的某个组件
+//获取当前物体的子物体身上的某个组件
 //GetComponentInChildren<CapsuleCollider>(bc); 
-／／获取当前物体的父物体身上的某个组件
+//获取当前物体的父物体身上的某个组件
 //GetComponentlnParent<BoxCollider>0); 
-／／添加一个组件
+//添加一个组件
 Cube.AddComponent<AudioSource>0);
-／／通过游戏物体的名称来获取游戏物体
+//通过游戏物体的名称来获取游戏物体
 GameObject test =GameObject.Find("Test");
-／／通过游戏标签来获取游戏物体
+//通过游戏标签来获取游戏物体
 test = GameObject.FindWithTag("Enemy"); 
 test.SetActive(false);
 Debug.Log(test.name); 
@@ -100,18 +100,18 @@ Debug.Log(Time.deltaTime);//上一帧到这一帧所用的时间
 
 # Application类
 
-```
-／／游戏数据文件夹路径（只读，加密压缩）
+```c#
+//游戏数据文件夹路径（只读，加密压缩）
 
 Debug.Log（Application.dataPath＋＂／新建文本文档.txt＂）； 
-／／持久化文件夹路径
+//持久化文件夹路径
 Debug.Log(Application.persistentDataPath); 
-／／StreamingAssets文件夹路径（只读，配置文件） Debug.Log(Application.streamingAssetsPath); 
-／／临时文件夹
+//StreamingAssets文件夹路径（只读，配置文件） Debug.Log(Application.streamingAssetsPath); 
+//临时文件夹
 Debug.Log(Application.temporaryCachePath);
-／／控制是否在后台运行
+//控制是否在后台运行
 Debug.Log(Application.runlnBackground); 
-／／打开url
+//打开url
 Application.OpenURL(""); 
 //退出游戏
 Application.Quit();
@@ -123,15 +123,15 @@ Application.Quit();
 ```c#
 //加载场景
 SceneManger.LoadScene();
-／／获取当前场景
+//获取当前场景
 Scene scene =SceneManager.GetActiveScene(); 
-／／场景名称
+//场景名称
 Debug.Log(scene.name); 
-／／场景是否已经加载
+//场景是否已经加载
 Debug.Log(scene.isLoaded);
-／／场景路径
+//场景路径
 Debug.Log(scene.path); 
-／／场景索引
+//场景索引
 Debug.Log(scene.buildlndex);
 GameObject[] gos =scene.GetRootGameObjects(); 
 Debug.Log(gos.Length);
@@ -140,11 +140,11 @@ Debug.Log(gos.Length);
 
 //场景管理类
 Scene newScene =SceneManager.CreateScene("newScene"); 
-／／已加载场景个数
+//已加载场景个数
 Debug.Log(SceneManager.sceneCount); 
-／／卸载场景
+//卸载场景
 SceneManager.UnloadSceneAsync(newScene); 
-／／加载场景
+//加载场景
 //Single关闭所有当前加载的场景 并加载一个场景。Additive将场景添加到当前加载的场景。
 SceneManager.LoadScene("MyScene",LoadSceneMode.Additive); 
 
@@ -160,16 +160,16 @@ public class AsyncTest:MonoBehaviour
 	void Start(){
     StartCoroutine(loadScene());
 	} 
-／／协程方法用来异步加载场景1个引用
+//协程方法用来异步加载场景1个引用
 	IEnumerator loadScene() {
 	operation =SceneManager.LoadSceneAsync(1); 
-    ／／加载完场景不要自动跳转
+    //加载完场景不要自动跳转
 	operation.allowSceneActivation =false; 
 	yield return operation;
 	} 
     void Update(){
-	／／输出加载进度0—0.9
-	Debug.Log(operation.progress); timer += Time.deltaTime; ／／如果到达5秒，再跳转
+	//输出加载进度0—0.9
+	Debug.Log(operation.progress); timer += Time.deltaTime; //如果到达5秒，再跳转
 	if (timer > 5) {
 	operation.allowSceneActivation =true;
 	}
@@ -199,19 +199,19 @@ transform.RotateAround(Vector3.zero, Vector3.up, 5); //移动
 transform.Translate(Vector3.forward* 0.1f); 
 
 
-／／父子关系
-／／获取父物体
+//父子关系
+//获取父物体
 transform.parent.gameObject 
-／／子物体个数
+//子物体个数
 Debug.Log(transform.childCount); 
-／／解除与子物体的父子关系
+//解除与子物体的父子关系
 transform.DetachChildren(); 
-／／获取子物体
+//获取子物体
 Transform trans = transform.Find("Child"); 
 trans =transform.GetChild(0);
 判断一个物体是不是另外一个物体的子物体
 bool res= trans.lsChildOf(transform); Debug.Log(res);
-／／设置为父物体
+//设置为父物体
 trans.SetParent(transform); 
 
 ```
@@ -262,3 +262,37 @@ if (Input.GetButtonUp("Jump"))
 Debug.Loq("空格");
 ```
 
+# 触摸板
+
+```c#
+//开启多点触摸
+input.multiTouchEnabled =true;
+//判断单点触摸
+if(Input.touchCount==1)
+{
+//触摸对象
+Touchtouch=Input.touches[0];
+1/触摸位置
+Debug.Log(touch.position);
+//触摸阶段
+switch(touch.phase)
+{
+caseTouchPhase.Began:
+break;
+caseTouchPhase.Moved:
+break;
+caseTouchPhase.Stationary:
+break;
+caseTouchPhase.Ended:
+break;
+caseTouchPhase.Canceled:
+break
+}
+  
+  //判断多点触摸
+if(Input.touchCount==2)
+Touchtouch=input.touches[0];
+Touchtouch1=Input.touches[1];
+```
+
+# 灯光与烘焙
