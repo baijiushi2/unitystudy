@@ -218,6 +218,47 @@ trans.SetParent(transform);
 
 # 键鼠操作（在update中写）
 
-111
-2222
-wfasd
+```c#
+//鼠标的点击
+//按下鼠标 0左键 1右键 2滚轮
+if (Input.GetMouseButtonDown(0)) {
+Debug.Log("按下了鼠标左键");
+}
+//持续按下鼠标
+if (Input.GetMouseButton(0))
+Debug.Log("持续按下鼠标左键”);
+//抬起鼠标
+if (Input.GetMouseButtonUp(0)) (
+Debug.Log("抬起了鼠标左键");
+//按下键盘按键
+if (Input.GetKeyDown(KeyCode.A))
+{
+Debug.Log(“按下了A");
+}
+//持续按下按键
+if (Input.GetKey(KeyCode.A))
+{
+Debug.Log("持续按下A");
+1抬起键盘按键
+if (Input.GetKeyUp("a"))
+{
+Debug.Log("松开了A");
+}
+```
+
+# 虚拟轴	
+
+```c#
+//获取水平轴
+float horizontal = Input.GetAxis("Horizontal");
+float vertical = Input.GetAxis("Vertical");
+Debug.Log(horizontal +"  " + vertical):
+//虚拟按键
+if (Input.GetButtonDown("Jump"))
+Debug.Log("空格");
+if (Input.GetButton("Jump")
+Debug.Log("空格");
+if (Input.GetButtonUp("Jump"))
+Debug.Loq("空格");
+```
+
