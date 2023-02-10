@@ -435,3 +435,29 @@ private void OnTriggerExit(Collider other）{
 # 物理材质
 
 ![image-20230210141740003](./unity资料.assets/image-20230210141740003-6009868.png)
+
+
+
+# 射线检测
+
+```c#
+if(Input.GetMouseButtonDown(0))
+{
+//按下鼠标左键发射射线
+Rayray=Camera.main.ScreenPointToRay(Input.mousePosition)
+//声明一个碰撞信息类
+RaycastHit hit;
+//碰撞检测
+bool res=Physics.Raycast(ray,out hit);
+//如果碰撞到的情况下，hit就有内容了
+if(res==true)
+{
+Debug.Log(hit.point);
+transform.position=hit.point;
+}
+//多检测
+RaycastHit[] hits=Physics.RaycastAll(ray,100,1<<10);
+```
+
+# 绘制线段与线处理器
+
