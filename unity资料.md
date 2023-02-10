@@ -295,4 +295,143 @@ Touchtouch=input.touches[0];
 Touchtouch1=Input.touches[1];
 ```
 
-# 灯光与烘焙
+# 声音
+
+1. 组件名称audio source
+
+```c#
+//AudioClip
+//音频
+public AudioClip music;
+//音效
+public AudioClip se;
+//播放器组件
+private AudioSource player;
+//Startiscalledbeforethefirstframeupdate
+void Start(){
+player=GetComponent<AudioSource>();
+//设定播放的音频片段
+player.clip=music;
+//循环
+player.loop=true;
+//音量
+player.volume=0.5f;
+//播放
+player.Play();
+}
+
+//按空格切换声音的播放和暂停
+if(Input.GetKeyDown(KeyCode.Space))
+{
+//如果当前正在播放声音
+if(player.isPlaying)
+{
+//暂停
+player.Pause();
+  //停止播放进度条从零开始
+//player.Stop();
+}
+  else
+{
+		//继续
+		player.UnPause();
+    //开始播放
+    player.Play();
+}
+}
+
+
+//按鼠标左键播放音效
+if(input.GetMouseButton(0)){
+  Player.PlayOneShot(se);
+}
+```
+
+# 视频播放脚本
+
+```c#
+using UnityEngine.video;
+
+
+play= GetComponent<VideoPlayer>();
+
+
+```
+
+# 角色控制
+
+1. 商店中的角色控制器
+2. unity自带的角色控制器
+3. 自己编写角色控制器
+
+组件Charater controller
+
+## 脚本
+
+```c#
+private CharaterController player;
+
+//水平轴
+floathorizontal=Input.GetAxis("Horizontal");
+//垂直轴
+floatvertical=Input.GetAxis("Vertical");
+//创建成一个方向向量
+Vector dir=new Vector3(horizontal,0,vertical);
+//Debug.DrawRay(transform.position,dir,Color.red);
+//朝向该方向移动
+player.SimpleMove(dir);
+```
+
+# 碰撞监听
+
+```c#
+public GameObject Prefab;
+
+//监听发生碰撞
+private void OnCollisionEnter(Collision collision)
+{
+	//创建一个爆炸物体
+	Instantiate(Prefab,transform.position,Quaternion.identity);
+	//销毁自身
+	Destroy(gameObject);I
+    //获取碰撞到的物体
+	Debug.Log(collision.gameObject.name);
+}
+//持续碰撞中
+private void OnCollisionStay(Collision collision)
+{
+}
+//结束碰撞
+private void OnCollisionExit(Collision colision){
+  
+}
+```
+
+# 触发监听
+
+```c#
+private void OnTriggerEnter(Collider other)
+{
+GameObject door=GameObject.Find("Door");
+if(door!=null)
+{door.SetActive(false);
+}
+
+private void OnTriggerStay(Collider other){
+  
+}
+private void OnTriggerExit(Collider other）{
+}
+```
+
+# 弹簧铰链特殊关节
+
+添加组件：Hinge Joint（铰链关节）
+
+​					Spring Joint(弹簧组件)
+
+​					Fixed Joint (固定组件)
+
+# 物理材质
+
+![image-20230210134425340](/Users/baibai/Library/Application Support/typora-user-images/image-20230210134425340.png)
