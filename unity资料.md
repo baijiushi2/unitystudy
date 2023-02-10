@@ -434,4 +434,4 @@ private void OnTriggerExit(Collider other）{
 
 # 物理材质
 
-![image-20230210134425340](/Users/baibai/Library/Application Support/typora-user-images/image-20230210134425340.png)
+![image-20230210140805877](/Users/baibai/Documents/GitHub/unitystudy/unity资料.assets/image-20230210140805877.png)
