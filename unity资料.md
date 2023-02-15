@@ -459,5 +459,25 @@ transform.position=hit.point;
 RaycastHit[] hits=Physics.RaycastAll(ray,100,1<<10);
 ```
 
-# 绘制线段与线处理器
+# 为游戏物体添加动画
+
+![image-20230215235207132](./unity资料.assets/image-20230215235207132-6476336.png)
+
+ctrl+6 动画面板
+
+![image-20230215235633512](./unity资料.assets/image-20230215235633512.png)
+
+新版animator组件
+
+自己创建动画控制器
+
+拖动到animator控制器组件中
+
+![image-20230216000245934](./unity资料.assets/image-20230216000245934.png)
+
+编写脚本：按下鼠标左键切换动画
+
+![image-20230216000728810](./unity资料.assets/image-20230216000728810.png)
+
+
 
