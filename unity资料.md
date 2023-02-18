@@ -581,3 +581,95 @@ SetLookAtWeight(1)设置权重
 
 # 导航组件
 
+窗口->AI->导航
+
+![image-20230218160138576](./unity资料.assets/image-20230218160138576.png)
+
+烘焙
+
+
+
+## 导航动起来吧
+
+![image-20230218161121121](./unity资料.assets/image-20230218161121121.png)
+
+为游戏内的物体添加导航组件
+
+编写playercontrol脚本
+
+```c#
+private NavMeshAgent agent;
+void Start()
+{
+//获取代理组件
+agent GetComponent<NavMeshAgent>();
+}
+void Update()
+{//如果按下鼠标
+if (Input.GetMouseButtonDown(0))
+{
+//获取点击位置
+Ray ray =Camera.main.ScreenPointToRay(Input.mousePosition);
+RaycastHit hit;
+if (Physics.Raycast(ray,out hit))
+{
+//点击位置
+Vector3 point hit.point;
+//设置该位置为导航目标点
+agent.SetDestination(point);
+}
+}
+}
+
+```
+
+
+
+
+
+## 网格链接与动态障碍物
+
+为动态障碍物添加组件
+
+![image-20230218162706731](./unity资料.assets/image-20230218162706731.png)
+
+切割：动态的重新烘焙
+
+
+
+### 生成分离网格链接
+
+![image-20230218163333408](./unity资料.assets/image-20230218163333408.png)
+
+生成网格链接打开 才能支持
+
+
+
+
+
+### off Mesh Link组件
+
+![image-20230218164047409](./unity资料.assets/image-20230218164047409.png)
+
+两个点来网格链接
+
+
+
+## 导航区域
+
+
+
+
+
+
+
+
+
+
+
+# UI绘制
+
+创界画布Canvas 自动创建EventSystem(事件系统)
+
+Fantasy Free GUI 免费UI资源
+
