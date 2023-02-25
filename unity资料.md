@@ -673,3 +673,41 @@ agent.SetDestination(point);
 
 Fantasy Free GUI 免费UI资源
 
+
+
+![image-20230223115528518](./unity资料.assets/image-20230223115528518.png)
+
+
+
+
+
+## 编写UI脚本
+
+![image-20230223130458884](./unity资料.assets/image-20230223130458884.png)
+
+## 选项组件与切换，下拉框
+
+选项组件： Toggle
+
+滑动条： Silder
+
+滚动视图：Scroll View
+
+## 创建UI面板
+
+
+
+panel面板：将UI界面写入Panel可以防止弄乱
+
+## UI常用组件
+
+mask：遮罩
+
+Content Size Fitter:自动匹配TEXT大小 宽高自动缩放
+
+Vertical Layout Group  horizontical Layout Group：垂直水平布局组
+
+Grid Layout Group：网格式图组
+
+
+
